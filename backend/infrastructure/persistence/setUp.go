@@ -39,11 +39,11 @@ func NewRepositories(Dbdriver, DbUser, DbPassword, DbPort, DbHost, DbName string
 	}
 
 	return &Repositories{
-		Product: NewProductRepository(db),
+		Product:  NewProductRepository(db),
 		Category: NewCategoryRepository(db),
-		Order: NewOrderRepository(db),
-		Member: NewMemberRepository(db),
-		db: db,
+		Order:    NewOrderRepository(db),
+		Member:   NewMemberRepository(db),
+		db:       db,
 	}, nil
 }
 
