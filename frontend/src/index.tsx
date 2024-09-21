@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client'
 
 import { ConfigProvider } from 'antd'
 import Locale from 'antd/es/locale/zh_TW'
-import RouteIndex from 'Route'
+import RouteIndex from 'RouteIndex'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import stylees from './index.scss'
