@@ -42,6 +42,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/joho/godotenv v1.5.1
 	github.com/juju/ratelimit v1.0.2
 	golang.org/x/text v0.15.0 // indirect
 	gorm.io/driver/mysql v1.5.7
