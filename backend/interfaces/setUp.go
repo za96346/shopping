@@ -36,7 +36,10 @@ func SetUp(repo *persistence.Repositories) *gin.Engine {
 	)
 
 	// 新增 route group
-	memberApi := apiServer.Group("/workApp/member")
+	memberApi := apiServer.Group("/shopping/member")
+	productApi := apiServer.Group("/shopping/products")
+	categoryApi := apiServer.Group("/shopping/category")
+	orderApi := apiServer.Group("/shopping/orders")
 
 	// 實例 app
 	memberController := controller.NewMember(
@@ -44,9 +47,22 @@ func SetUp(repo *persistence.Repositories) *gin.Engine {
 			MemberRepository: repo.Member,
 		},
 	)
+	productController := controller.NewProduct(&application.ProductApp{
+		ProductRepository: repo.Product,
+	})
+	categoryController := controller.NewCategory(&application.CategoryApp{
+		CategoryRepository: repo.Category,
+	})
+	orderController := controller.NewOrder(&application.OrderApp{
+		OrderRepository: repo.Order,
+	})
 
 	// 嵌入 route group
 	route.Member(memberApi, memberController)
+	route.Product(productApi, productController)
+	route.Category(categoryApi, categoryController)
+	route.Order(orderApi, orderController)
+
 	// start
 	apiServer.Run(":" + port)
 
