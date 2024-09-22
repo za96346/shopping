@@ -21,10 +21,23 @@ var _ repository.MemberRepository = &MemberRepo{}
 func (r *MemberRepo) GetMember(memberEntity *entities.Member) (*entities.Member, error) {
 	var member entities.Member
 
-	err := r.db.
-		Debug().
-		Table(r.tableName).
-		Where("id = ?", memberEntity.ID).
+	searchQuery := r.db.
+	Debug().
+	Table(r.tableName)
+
+	if memberEntity.Account != "" {
+		searchQuery = searchQuery.Where("account = ?", memberEntity.Account)
+	}
+
+	if memberEntity.Password != "" {
+		searchQuery = searchQuery.Where("password = ?", memberEntity.Password)
+	}
+
+	if memberEntity.ID != 0 {
+		searchQuery = searchQuery.Where("id = ?", memberEntity.ID)
+	}
+
+	err := searchQuery.
 		Find(&member).
 		Error
 
