@@ -19,9 +19,7 @@ func NewProduct(app service.ProductAppInterface) *ProductController {
 }
 
 func (p *ProductController) GetProducts(Request *gin.Context) {
-	productEntity, err := p.productApp.GetProducts(&entities.Product{
-
-	})
+	productEntity, err := p.productApp.GetProducts(&entities.Product{})
 
 	if err != nil {
 		Request.JSON(

@@ -19,9 +19,7 @@ func NewCategory(app service.CategoryAppInterface) *CategoryController {
 }
 
 func (c *CategoryController) GetCategories(Request *gin.Context) {
-	categoryEntity, err := c.categoryApp.GetCategories(&entities.Category{
-
-	})
+	categoryEntity, err := c.categoryApp.GetCategories(&entities.Category{})
 
 	if err != nil {
 		Request.JSON(

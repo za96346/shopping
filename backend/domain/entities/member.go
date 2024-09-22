@@ -3,8 +3,10 @@ package entities
 import "time"
 
 type Member struct {
-	ID          int        `gorm:"column:id;primaryKey" json:"ID"`                            //type:*int      comment:會員ID          version:2023-10-02
-	Name        string     `gorm:"column:name" json:"Name" binding:"required"`                //type:string    comment:會員名稱        version:2023-10-02
+	ID          int        `gorm:"column:id;primaryKey" json:"ID"`             //type:*int      comment:會員ID          version:2023-10-02
+	Name        string     `gorm:"column:name" json:"Name" binding:"required"` //type:string    comment:會員名稱        version:2023-10-02
+	Account     string     `gorm:"column:account" json:"Account"`
+	Password    string     `gorm:"column:password" json:"Password"`
 	PhoneNumber int        `gorm:"column:phone_number" json:"PhoneNumber" binding:"required"` //type:int       comment:電話號碼        version:2023-10-02
 	Address     string     `gorm:"column:address" json:"Address" binding:"required"`          //type:string    comment:地址            version:2023-10-02
 	Sort        int        `gorm:"column:sort" json:"Sort"`                                   //type:int       comment:排序            version:2023-10-02

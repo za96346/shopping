@@ -19,9 +19,7 @@ func NewMember(app service.MemberAppInterface) *MemberController {
 }
 
 func (m *MemberController) GetMine(Request *gin.Context) {
-	memberEntity, err := m.memberApp.GetMember(&entities.Member{
-
-	})
+	memberEntity, err := m.memberApp.GetMember(&entities.Member{})
 
 	if err != nil {
 		Request.JSON(

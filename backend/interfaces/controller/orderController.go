@@ -19,9 +19,7 @@ func NewOrder(app service.OrderAppInterface) *OrderController {
 }
 
 func (o *OrderController) GetOrders(Request *gin.Context) {
-	orderEntity, err := o.orderApp.GetOrders(&entities.Order{
-
-	})
+	orderEntity, err := o.orderApp.GetOrders(&entities.Order{})
 
 	if err != nil {
 		Request.JSON(
