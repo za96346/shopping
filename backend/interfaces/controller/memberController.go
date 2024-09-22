@@ -66,7 +66,7 @@ func (m *MemberController) Login(Request *gin.Context) {
 		Password: reqBody.Password,
 	})
 
-	if err != nil || memberInfo == nil {
+	if err != nil || memberInfo.ID == 0 {
 		Request.JSON(
 			http.StatusOK,
 			gin.H{
@@ -85,6 +85,7 @@ func (m *MemberController) Login(Request *gin.Context) {
 		http.StatusOK,
 		gin.H{
 			"message": "登入成功",
+			"data": *memberInfo,
 		},
 	)
 }

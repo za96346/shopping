@@ -8,4 +8,5 @@ import (
 
 func Member(props *gin.RouterGroup, memberController *controller.MemberController) {
 	props.GET("/my", memberController.GetMine)
+	props.GET("/login", memberController.Login)
 }
