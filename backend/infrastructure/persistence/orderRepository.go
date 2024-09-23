@@ -35,3 +35,13 @@ func (r *OrderRepo) GetOrders(orderEntity *entities.Order) (*[]entities.Order, e
 	err := searchQuery.Find(&orders).Error
 	return &orders, err
 }
+
+func (r *OrderRepo) AddOrder(orderEntity *entities.Order) (*entities.Order, error) {
+	err := r.db.
+		Debug().
+		Table(r.tableName).
+		Create(&orderEntity).
+		Error
+
+	return orderEntity, err
+}

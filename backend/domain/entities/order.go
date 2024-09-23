@@ -5,8 +5,6 @@ import "time"
 type Order struct {
 	ID                 int        `gorm:"column:id;primaryKey" json:"ID"`                            //type:*int      comment:訂單ID            version:2023-10-02
 	OrderMember        int        `gorm:"column:order_member" json:"OrderMember" binding:"required"` //type:int       comment:會員ID            version:2023-10-02
-	Quantity           int        `gorm:"column:quantity" json:"Quantity" binding:"required"`        //type:int       comment:訂購數量          version:2023-10-02
-	ProductSinglePrice int        `gorm:"column:product_single_price" json:"ProductSinglePrice"`     //type:int       comment:單價              version:2023-10-02
 	TotalAmount        int        `gorm:"column:total_amount" json:"TotalAmount"`                    //type:int       comment:總金額            version:2023-10-02
 	Status             int        `gorm:"column:status" json:"Status"`                               //type:int       comment:訂單狀態          version:2023-10-02
 	Sort               int        `gorm:"column:sort" json:"Sort"`                                   //type:int       comment:排序              version:2023-10-02

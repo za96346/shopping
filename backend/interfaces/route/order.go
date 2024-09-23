@@ -8,4 +8,5 @@ import (
 
 func Order(props *gin.RouterGroup, orderController *controller.OrderController) {
 	props.GET("/", orderController.GetOrders)
+	props.PUT("/", orderController.AddOrder)
 }
