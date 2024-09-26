@@ -41,5 +41,5 @@ func (o *OrderController) GetOrders(Request *gin.Context) {
 }
 
 func (o *OrderController) AddOrder(Request *gin.Context) {
-	o.orderApp.AddOrder(&entities.Order{})
+	o.orderApp.AddOrder(&[]entities.OrderItem{})
 }

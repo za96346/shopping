@@ -13,6 +13,7 @@ type Repositories struct {
 	Product  repository.ProductRepository
 	Category repository.CategoryRepository
 	Order    repository.OrderRepository
+	OrderItem repository.OrderItemRepository
 	Member   repository.MemberRepository
 	db       *gorm.DB
 }

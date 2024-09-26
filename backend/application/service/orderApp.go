@@ -12,9 +12,11 @@ type OrderApp struct {
 	ProductRepository repository.ProductRepository
 }
 
+var _ OrderAppInterface = &OrderApp{}
+
 type OrderAppInterface interface {
 	GetOrders(orderEntity *entities.Order) (*[]entities.Order, error)
-	AddOrder(orderEntity *entities.Order) (*entities.Order, error)
+	AddOrder(orderItems *[]entities.OrderItem) (*entities.Order, error)
 }
 
 func (app *OrderApp) GetOrders(orderEntity *entities.Order) (*[]entities.Order, error) {

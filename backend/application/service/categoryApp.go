@@ -9,6 +9,8 @@ type CategoryApp struct {
 	CategoryRepository repository.CategoryRepository
 }
 
+var _ CategoryAppInterface = &CategoryApp{}
+
 type CategoryAppInterface interface {
 	GetCategories(categoryEntity *entities.Category) (*[]entities.Category, error)
 }

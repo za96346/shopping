@@ -55,6 +55,8 @@ func SetUp(repo *persistence.Repositories) *gin.Engine {
 	})
 	orderController := controller.NewOrder(&application.OrderApp{
 		OrderRepository: repo.Order,
+		OrderItemRepository: repo.OrderItem,
+		ProductRepository: repo.Product,
 	})
 
 	// 嵌入 route group

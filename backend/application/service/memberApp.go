@@ -9,6 +9,8 @@ type MemberApp struct {
 	MemberRepository repository.MemberRepository
 }
 
+var _ MemberAppInterface = &MemberApp{}
+
 type MemberAppInterface interface {
 	GetMember(memberEntity *entities.Member) (*entities.Member, error)
 	Login(memberEntity *entities.Member) (*entities.Member, error)
