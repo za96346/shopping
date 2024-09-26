@@ -45,3 +45,16 @@ func (r *OrderRepo) AddOrder(orderEntity *entities.Order) (*entities.Order, erro
 
 	return orderEntity, err
 }
+
+func (r *OrderRepo) GetNewOrderId() int {
+	var MaxCount int64
+
+	r.db.
+		Debug().
+		Table(r.tableName).
+		Select("max(id)").
+		Row().
+		Scan(&MaxCount)
+
+	return int(MaxCount) + 1
+}

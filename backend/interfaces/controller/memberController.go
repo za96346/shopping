@@ -62,7 +62,7 @@ func (m *MemberController) Login(Request *gin.Context) {
 	}
 
 	memberInfo, err := m.memberApp.Login(&entities.Member{
-		Account: reqBody.Account,
+		Account:  reqBody.Account,
 		Password: reqBody.Password,
 	})
 
@@ -85,7 +85,7 @@ func (m *MemberController) Login(Request *gin.Context) {
 		http.StatusOK,
 		gin.H{
 			"message": "登入成功",
-			"data": *memberInfo,
+			"data":    *memberInfo,
 		},
 	)
 }

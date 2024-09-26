@@ -22,8 +22,8 @@ func (r *MemberRepo) GetMember(memberEntity *entities.Member) (*entities.Member,
 	var member entities.Member
 
 	searchQuery := r.db.
-	Debug().
-	Table(r.tableName)
+		Debug().
+		Table(r.tableName)
 
 	if memberEntity.Account != "" {
 		searchQuery = searchQuery.Where("account = ?", memberEntity.Account)

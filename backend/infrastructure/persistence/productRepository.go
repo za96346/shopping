@@ -35,3 +35,18 @@ func (r *ProductRepo) GetProducts(productEntity *entities.Product) (*[]entities.
 	err := searchQuery.Find(&products).Error
 	return &products, err
 }
+
+func (r *ProductRepo) GetProduct(productEntity *entities.Product) (*entities.Product, error) {
+	var product entities.Product
+
+	searchQuery := r.db.
+		Debug().
+		Table(r.tableName)
+	
+	if productEntity.ID != 0 {
+		searchQuery = searchQuery.Where("id = ?", productEntity.ID)
+	}
+
+	err := searchQuery.First(&product).Error
+	return &product, err
+}

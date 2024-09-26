@@ -4,4 +4,5 @@ import "backend/domain/entities"
 
 type ProductRepository interface {
 	GetProducts(productEntity *entities.Product) (*[]entities.Product, error)
+	GetProduct(productEntity *entities.Product) (*entities.Product, error)
 }
